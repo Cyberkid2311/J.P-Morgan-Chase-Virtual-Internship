@@ -1,0 +1,67 @@
+From 62fec205ea21f96ab62c0e292071651a834fd02c Mon Sep 17 00:00:00 2001
+From: Balasubramanian <2018pgcaca23@nitjsr.ac.in>
+Date: Wed, 13 May 2020 09:46:24 +0000
+Subject: [PATCH] Create Patch File
+
+---
+ __pycache__/client3.cpython-38.pyc | Bin 0 -> 1081 bytes
+ client3.py                         |  10 ++--------
+ 2 files changed, 2 insertions(+), 8 deletions(-)
+ create mode 100644 __pycache__/client3.cpython-38.pyc
+
+diff --git a/__pycache__/client3.cpython-38.pyc b/__pycache__/client3.cpython-38.pyc
+new file mode 100644
+index 0000000000000000000000000000000000000000..53f17660653dc18e2f03240483e42bee0e67f546
+GIT binary patch
+literal 1081
+zcmYjQ%Wl*#6txp4lW8-h&=;d_!UDlah$&)IRRszyh*j0{SYQEBI=<7U&BRmNgJ_wq
+z$_MZX(<KsrzzP<8gtx5Nvtq@KhgR6SPv6)l=h`nDjR}I|%eSv@KShN6tb+eX9fLI#
+z{R5RCf)<2RXFcvY>vP{(#+mSVAbcJQCW4QI*F-34Xd|eL=)hCoVFJQax<TH&=aV_%
+zG5Dhf(EX{=B?v~-z((whoY6Bnx?EX)1+HN25}$z@%$(BKjL-5pKF=3m0b-b4C2&>L
+zVHW0K9u~T6o}5xj4h?1}Ac9y-HVNvuNlv|gYflAzPFjs$_%CGh_}ZQ^{grmRke#g9
+zliI8-FD);%4+o%*9^~TQhm-s_C8UFLF#_}$$~uZ(Lp4NBn&gC<%JZ5;_;?;Y@m$O<
+zVt?oj{RJX|MRLN1w2FqT%MeX?ypn7wDFz)#vZ6?2H!*vVlmG%m@-8a|pc5mLT_{0i
+z28$ArnXE7K(j+#}Ms^Nt&B%VblM5U4Ro;PdoauvK9ztwU8*~eqnO0zf!+|uQs<f@+
+z2kE%Jj<sV~Re$%Hs7W+`mfL%>2W>Sd@$B}NEOG-cpwzIXa;b82)ZXv+(jI~@AidM>
+z6giaU?(P1Ojd#IpAj~ZX6Zg{Yp7{}-#u-!9z+9(-aXu=)636T;IzuWb-kMmD=g94l
+zE~0IDo2qJugV*wS&B0Hzb7#jbj8%+vHbNZFGLy>|Mmj`AXha!RQ*Jd)ds$wl>G6&2
+ziWiYw*GXoQo5;+{b$u&ATAX#qpw~K%+-_KB{fCd%t-ta3Nvp}H2C69Xo!biV_GrVy
+zacr5%d%)SgmL(5WRtnkU!S>6?&t6%&={UFmQf56!QyXB_E?AoK&>gC6fUOgn*UtB@
+z;oh<jr474M^)h3bf=t-Zbyh2U#l-bjRc}{Sw7Z_Vt5KT&2&!7F#w@Lldw72iQ#wHv
+YAxk)Y<})v<M`7g0$XbHAX_R^T7bZImD*ylh
+
+literal 0
+HcmV?d00001
+
+diff --git a/client3.py b/client3.py
+index 597984e..ec8d63a 100644
+--- a/client3.py
++++ b/client3.py
+@@ -42,22 +42,16 @@ def getRatio(price_a, price_b):
+   if (price_b==0):
+     return
+   return price_a/price_b
+-	""" Get ratio of price_a and price_b """
+-	""" ------------- Update this function ------------- """
+-	""" Also create some unit tests for this function in client_test.py """
+ 
+ # Main
+ if __name__ == "__main__":
+ 
+ 	# Query the price once every N seconds.
+ 	for _ in range(N):
++		prices={}
+ 		quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
+-
+-		""" ----------- Update to get the ratio --------------- """
+-    prices={}
+ 		for quote in quotes:
+ 			stock, bid_price, ask_price, price = getDataPoint(quote)
+-      price[stock]=price
++			prices[stock]=price
+ 			print ("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
+-
+ 		print ("Ratio %s" % (getRatio(prices['ABC'],prices['DEF'])))
+-- 
+2.17.1
+
